@@ -2,7 +2,15 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-title" content="Hashemi CV" />
+<link rel="manifest" href="manifest.webmanifest" />
+<link rel="apple-touch-icon" href="apple-touch-icon.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
+<link rel="icon" type="image/png" sizes="192x192" href="icon-192.png" />
 
 <meta name="description" content="Hashemi Rafsanjani — Cybersecurity Researcher, OSINT Practitioner, Threat Analyst & Bug Bounty Hunter. Live CV." />
 <meta name="author" content="Hashemi Rafsanjani" />
@@ -13,8 +21,6 @@
 <meta property="og:url" content="https://aloc999.github.io/" />
 <meta property="og:image" content="https://aloc999.github.io/photo.jpg" />
 <meta name="twitter:card" content="summary" />
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>" />
-
 <title>Hashemi Rafsanjani — Cybersecurity Researcher CV</title>
 <style>
   @page { size: A4; margin: 0; }
@@ -390,144 +396,428 @@
 
   .section-title, .job-head, .cert-cat { page-break-after: avoid; }
 
-  /* ── WEB LIVE CV OVERRIDES ── */
-  html { scroll-behavior: smooth; }
+  /* ── RESPONSIVE + PWA WEB CV ── */
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+
   body {
     background: #03060c !important;
     min-height: 100vh;
-    font-size: 15px !important;
+    min-height: 100dvh;
+    font-size: clamp(14px, 0.9rem + 0.25vw, 16px) !important;
     line-height: 1.5 !important;
+    overflow-x: hidden;
   }
+
   .site-bg {
-    position: fixed; inset: 0; z-index: 0; pointer-events: none;
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
     background:
       radial-gradient(ellipse 70% 40% at 80% 0%, rgba(0,255,156,0.07), transparent 55%),
       radial-gradient(ellipse 50% 40% at 10% 100%, rgba(0,212,255,0.05), transparent 50%),
       #03060c;
   }
+
+  /* Sticky top bar */
   .topbar {
-    position: sticky; top: 0; z-index: 100;
-    display: flex; align-items: center; justify-content: space-between;
-    gap: 12px; flex-wrap: wrap;
-    padding: 10px 20px;
-    background: rgba(5,8,15,0.88);
-    backdrop-filter: blur(12px);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    flex-wrap: wrap;
+    padding: 10px max(16px, env(safe-area-inset-right)) 10px max(16px, env(safe-area-inset-left));
+    padding-top: max(10px, env(safe-area-inset-top));
+    background: rgba(5, 8, 15, 0.9);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
     border-bottom: 1px solid #1a2740;
   }
   .topbar .brand {
     font-family: "Cascadia Code", "Fira Code", Consolas, monospace;
-    font-size: 12px; color: #00ff9c; letter-spacing: 0.5px;
+    font-size: clamp(11px, 2.8vw, 13px);
+    color: #00ff9c;
+    letter-spacing: 0.4px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: min(52vw, 320px);
   }
   .topbar .brand span { color: #6b7c94; }
-  .topbar-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+  .topbar-actions {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
   .btn {
-    display: inline-flex; align-items: center; gap: 6px;
-    padding: 7px 14px; border-radius: 4px;
-    font-size: 12px; font-weight: 600; text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    min-height: 40px;
+    padding: 8px 14px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 600;
+    text-decoration: none;
     font-family: "Cascadia Code", "Fira Code", Consolas, monospace;
-    border: 1px solid #00ff9c; color: #00ff9c;
-    background: rgba(0,255,156,0.06);
-    transition: background .15s, color .15s, box-shadow .15s;
+    border: 1px solid #00d4ff;
+    color: #00d4ff;
+    background: rgba(0, 212, 255, 0.06);
+    transition: background .15s, color .15s, box-shadow .15s, transform .15s;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+    white-space: nowrap;
   }
-  .btn:hover {
-    background: #00ff9c; color: #05080f;
-    box-shadow: 0 0 16px rgba(0,255,156,0.35);
+  .btn:hover, .btn:focus-visible {
+    background: #00d4ff;
+    color: #05080f;
+    box-shadow: 0 0 16px rgba(0, 212, 255, 0.35);
+    outline: none;
   }
-  .btn.secondary {
-    border-color: #00d4ff; color: #00d4ff;
-    background: rgba(0,212,255,0.06);
+  .btn:active { transform: scale(0.98); }
+  .btn.install {
+    border-color: #00ff9c;
+    color: #00ff9c;
+    background: rgba(0, 255, 156, 0.06);
+    display: none; /* shown via JS when installable */
   }
-  .btn.secondary:hover {
-    background: #00d4ff; color: #05080f;
-    box-shadow: 0 0 16px rgba(0,212,255,0.35);
+  .btn.install:hover, .btn.install:focus-visible {
+    background: #00ff9c;
+    color: #05080f;
+    box-shadow: 0 0 16px rgba(0, 255, 156, 0.35);
   }
+  .btn.install.show { display: inline-flex; }
+
   .wrap {
-    position: relative; z-index: 1;
-    max-width: 920px;
+    position: relative;
+    z-index: 1;
+    width: min(960px, 100%);
     margin: 0 auto;
-    padding: 20px 16px 48px;
+    padding:
+      clamp(12px, 2.5vw, 24px)
+      clamp(10px, 2.5vw, 20px)
+      clamp(32px, 5vw, 56px);
+    padding-bottom: max(clamp(32px, 5vw, 56px), env(safe-area-inset-bottom));
   }
+
   .page {
     width: 100% !important;
     min-height: auto !important;
-    max-width: 920px;
+    max-width: 960px;
     margin: 0 auto;
     border: 1px solid #1a2740;
-    border-radius: 10px;
-    box-shadow: 0 0 0 1px rgba(0,255,156,0.05), 0 24px 60px rgba(0,0,0,0.45);
+    border-radius: clamp(8px, 1.5vw, 12px);
+    box-shadow:
+      0 0 0 1px rgba(0, 255, 156, 0.05),
+      0 24px 60px rgba(0, 0, 0, 0.45);
     overflow: hidden;
   }
-  .page::after { opacity: 0.5; }
-  .header { padding: 22px 24px 18px !important; gap: 20px !important; }
-  .name { font-size: 28px !important; letter-spacing: 2px !important; }
-  .titles { font-size: 13px !important; margin-top: 6px !important; }
-  .tagline { font-size: 11px !important; }
+  .page::after { opacity: 0.45; }
+
+  /* Header */
+  .header {
+    padding: clamp(16px, 3vw, 28px) !important;
+    gap: clamp(14px, 2.5vw, 22px) !important;
+    flex-wrap: nowrap;
+    align-items: center !important;
+  }
+  .name {
+    font-size: clamp(1.35rem, 1rem + 2.2vw, 2rem) !important;
+    letter-spacing: 0.08em !important;
+    word-break: break-word;
+  }
+  .titles {
+    font-size: clamp(0.78rem, 0.7rem + 0.4vw, 0.95rem) !important;
+    margin-top: 6px !important;
+    line-height: 1.45 !important;
+  }
+  .titles span.dot { margin: 0 0.35em !important; }
+  .tagline {
+    font-size: clamp(0.68rem, 0.62rem + 0.3vw, 0.8rem) !important;
+  }
+  .accent-line {
+    width: clamp(56px, 12vw, 90px) !important;
+    margin: 8px 0 10px !important;
+  }
   .contacts {
-    font-size: 12px !important;
+    font-size: clamp(0.72rem, 0.68rem + 0.3vw, 0.85rem) !important;
     max-width: 100% !important;
-    grid-template-columns: 1fr 1fr !important;
-    gap: 6px 14px !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 6px 12px !important;
   }
-  .photo-wrap, .photo-wrap img {
-    width: 110px !important;
-    height: 110px !important;
+  .contacts .item {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
-  .body { padding: 20px 24px 24px !important; }
-  .section { margin-bottom: 18px !important; }
-  .section-title { font-size: 13px !important; margin-bottom: 10px !important; padding-bottom: 6px !important; }
-  .summary { font-size: 14px !important; line-height: 1.55 !important; }
-  .skill-label { font-size: 11px !important; margin-bottom: 6px !important; }
-  .chip { font-size: 11.5px !important; padding: 4px 10px !important; }
-  .chips { gap: 6px !important; }
-  .skill-group { margin-bottom: 10px !important; }
-  .job { margin-bottom: 14px !important; }
-  .job-role { font-size: 15px !important; }
-  .job-company { font-size: 13px !important; margin-bottom: 4px !important; }
-  .job-dates { font-size: 11px !important; padding: 2px 10px !important; }
-  ul.bullets li { font-size: 13.5px !important; line-height: 1.45 !important; margin-bottom: 3px !important; padding-left: 14px !important; }
-  .portfolio-item { padding: 12px 14px !important; margin-bottom: 10px !important; }
-  .portfolio-item .ptitle { font-size: 14px !important; }
-  .portfolio-item .plink { font-size: 12px !important; }
-  .portfolio-item .pdesc { font-size: 13px !important; line-height: 1.45 !important; margin-top: 4px !important; }
-  .cert-cat { font-size: 11px !important; margin: 12px 0 8px !important; }
-  .cert { padding: 5px 0 !important; }
-  .cert-name { font-size: 13px !important; }
-  .cert-meta { font-size: 11.5px !important; }
-  .cert-date { font-size: 11px !important; }
-  .cert-grid { gap: 0 20px !important; }
-  .interests { font-size: 14px !important; }
-  .footer { margin-top: 18px !important; padding-top: 12px !important; font-size: 12px !important; }
+  .contacts a {
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .photo-wrap {
+    width: clamp(84px, 18vw, 120px) !important;
+    height: clamp(84px, 18vw, 120px) !important;
+    flex-shrink: 0;
+  }
+  .photo-wrap img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center center !important;
+  }
+
+  .body {
+    padding: clamp(14px, 2.8vw, 28px) !important;
+  }
+  .section { margin-bottom: clamp(14px, 2.5vw, 22px) !important; }
+  .section-title {
+    font-size: clamp(0.72rem, 0.68rem + 0.25vw, 0.85rem) !important;
+    margin-bottom: 10px !important;
+    padding-bottom: 6px !important;
+    letter-spacing: 0.1em !important;
+  }
+  .summary {
+    font-size: clamp(0.88rem, 0.82rem + 0.25vw, 0.98rem) !important;
+    line-height: 1.55 !important;
+  }
+  .skill-label {
+    font-size: clamp(0.68rem, 0.64rem + 0.2vw, 0.78rem) !important;
+    margin-bottom: 6px !important;
+  }
+  .chips {
+    gap: 6px !important;
+  }
+  .chip {
+    font-size: clamp(0.7rem, 0.66rem + 0.2vw, 0.8rem) !important;
+    padding: 5px 10px !important;
+    line-height: 1.25 !important;
+  }
+  .skill-group { margin-bottom: 12px !important; }
+
+  .job { margin-bottom: 16px !important; }
+  .job-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .job-role {
+    font-size: clamp(0.95rem, 0.88rem + 0.3vw, 1.05rem) !important;
+  }
+  .job-company {
+    font-size: clamp(0.8rem, 0.76rem + 0.2vw, 0.9rem) !important;
+    margin-bottom: 5px !important;
+  }
+  .job-dates {
+    font-size: clamp(0.68rem, 0.64rem + 0.2vw, 0.78rem) !important;
+    padding: 3px 10px !important;
+  }
+  ul.bullets li {
+    font-size: clamp(0.85rem, 0.8rem + 0.22vw, 0.95rem) !important;
+    line-height: 1.45 !important;
+    margin-bottom: 4px !important;
+    padding-left: 14px !important;
+  }
+
+  .portfolio-item {
+    padding: clamp(10px, 2vw, 14px) !important;
+    margin-bottom: 10px !important;
+  }
+  .portfolio-item .ptitle {
+    font-size: clamp(0.9rem, 0.84rem + 0.25vw, 1rem) !important;
+  }
+  .portfolio-item .plink {
+    font-size: clamp(0.72rem, 0.68rem + 0.2vw, 0.82rem) !important;
+    word-break: break-all;
+  }
+  .portfolio-item .pdesc {
+    font-size: clamp(0.82rem, 0.78rem + 0.2vw, 0.92rem) !important;
+    line-height: 1.5 !important;
+    margin-top: 5px !important;
+  }
+
+  .cert-cat {
+    font-size: clamp(0.68rem, 0.64rem + 0.2vw, 0.78rem) !important;
+    margin: 14px 0 8px !important;
+  }
+  .cert {
+    padding: 6px 0 !important;
+    gap: 8px !important;
+  }
+  .cert-name {
+    font-size: clamp(0.82rem, 0.78rem + 0.2vw, 0.92rem) !important;
+  }
+  .cert-meta {
+    font-size: clamp(0.7rem, 0.66rem + 0.18vw, 0.8rem) !important;
+  }
+  .cert-date {
+    font-size: clamp(0.68rem, 0.64rem + 0.18vw, 0.78rem) !important;
+  }
+  .cert-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0 18px !important;
+  }
+
+  .interests {
+    font-size: clamp(0.88rem, 0.82rem + 0.2vw, 0.98rem) !important;
+  }
+  .footer {
+    margin-top: 18px !important;
+    padding-top: 12px !important;
+    font-size: clamp(0.7rem, 0.66rem + 0.18vw, 0.8rem) !important;
+  }
+
   .site-footer {
     text-align: center;
-    padding: 18px 12px 8px;
+    padding: 18px max(12px, env(safe-area-inset-right)) max(18px, env(safe-area-inset-bottom));
     font-family: "Cascadia Code", "Fira Code", Consolas, monospace;
-    font-size: 11px; color: #6b7c94;
+    font-size: clamp(0.7rem, 0.66rem + 0.2vw, 0.8rem);
+    color: #6b7c94;
+    line-height: 1.6;
   }
   .site-footer a { color: #00ff9c; text-decoration: none; }
   .site-footer a:hover { text-decoration: underline; }
 
-  @media (max-width: 720px) {
-    .header { flex-direction: column; align-items: flex-start !important; }
-    .photo-wrap { align-self: center; }
-    .contacts { grid-template-columns: 1fr !important; }
-    .cert-grid { grid-template-columns: 1fr !important; }
-    .name { font-size: 22px !important; }
-    .job-head { flex-direction: column; align-items: flex-start; gap: 4px; }
-    .body { padding: 16px 14px 20px !important; }
-    .header { padding: 18px 14px 14px !important; }
-    .wrap { padding: 12px 10px 36px; }
+  /* Offline toast */
+  .toast {
+    position: fixed;
+    left: 50%;
+    bottom: max(16px, env(safe-area-inset-bottom));
+    transform: translateX(-50%) translateY(120%);
+    z-index: 200;
+    background: #0c1f18;
+    border: 1px solid #0f3d2c;
+    color: #00ff9c;
+    font-family: "Cascadia Code", "Fira Code", Consolas, monospace;
+    font-size: 12px;
+    padding: 10px 16px;
+    border-radius: 8px;
+    box-shadow: 0 8px 28px rgba(0,0,0,0.45);
+    transition: transform .25s ease;
+    pointer-events: none;
+  }
+  .toast.show { transform: translateX(-50%) translateY(0); }
+
+  /* Tablet */
+  @media (max-width: 900px) {
+    .contacts {
+      grid-template-columns: 1fr 1fr !important;
+    }
   }
 
+  /* Mobile */
+  @media (max-width: 720px) {
+    .topbar {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 8px;
+      padding: 10px 12px;
+      padding-top: max(10px, env(safe-area-inset-top));
+    }
+    .topbar .brand {
+      max-width: 100%;
+      text-align: center;
+    }
+    .topbar-actions {
+      width: 100%;
+      justify-content: stretch;
+    }
+    .topbar-actions .btn {
+      flex: 1 1 auto;
+      min-width: 0;
+    }
+
+    .header {
+      flex-direction: column !important;
+      align-items: center !important;
+      text-align: center;
+    }
+    .header-main { width: 100%; }
+    .accent-line { margin-left: auto !important; margin-right: auto !important; }
+    .contacts {
+      grid-template-columns: 1fr !important;
+      justify-items: center;
+      text-align: left;
+      width: 100%;
+      max-width: 360px;
+      margin: 0 auto;
+    }
+    .contacts .item { justify-content: flex-start; width: 100%; }
+
+    .photo-wrap {
+      width: 112px !important;
+      height: 112px !important;
+      order: -1;
+    }
+
+    .job-head {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 4px;
+    }
+    .cert-grid {
+      grid-template-columns: 1fr !important;
+    }
+    .titles span.dot {
+      display: inline;
+    }
+  }
+
+  /* Small phones */
+  @media (max-width: 400px) {
+    .topbar-actions {
+      flex-direction: column;
+    }
+    .topbar-actions .btn {
+      width: 100%;
+    }
+    .name {
+      font-size: 1.25rem !important;
+      letter-spacing: 0.06em !important;
+    }
+    .chip {
+      padding: 4px 8px !important;
+    }
+  }
+
+  /* Large screens */
+  @media (min-width: 1100px) {
+    .wrap { width: min(1000px, 100%); }
+    .contacts {
+      grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    }
+  }
+
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .btn, .toast { transition: none; }
+  }
+
+  /* Print */
   @media print {
-    .topbar, .site-footer, .site-bg { display: none !important; }
-    .wrap { padding: 0; max-width: none; }
+    .topbar, .site-footer, .site-bg, .toast { display: none !important; }
+    .wrap { padding: 0; max-width: none; width: 100%; }
     .page {
-      border: none; border-radius: 0; box-shadow: none;
-      width: 210mm !important;
+      border: none;
+      border-radius: 0;
+      box-shadow: none;
+      width: 100% !important;
     }
     body { background: #05080f !important; }
   }
-
 </style>
 </head>
 <body>
@@ -535,9 +825,10 @@
 <div class="site-bg"></div>
 <nav class="topbar">
   <div class="brand">root@aloc999<span>:~#</span> ./cv.sh</div>
-  <div class="topbar-actions">
-    <a class="btn secondary" href="https://github.com/aloc999" target="_blank" rel="noopener">GitHub</a>
-    <a class="btn secondary" href="https://linkedin.com/in/hashemirafsanjani" target="_blank" rel="noopener">LinkedIn</a>
+    <div class="topbar-actions">
+    <button type="button" class="btn install" id="installBtn" aria-label="Install app">Install App</button>
+    <a class="btn" href="https://github.com/aloc999" target="_blank" rel="noopener">GitHub</a>
+    <a class="btn" href="https://linkedin.com/in/hashemirafsanjani" target="_blank" rel="noopener">LinkedIn</a>
   </div>
 </nav>
 <div class="wrap">
@@ -567,7 +858,7 @@
       </div>
     </div>
     <div class="photo-wrap">
-      <img src="photo.jpg" alt="Hashemi Rafsanjani" width="110" height="110" />
+      <img src="photo.jpg" alt="Hashemi Rafsanjani" width="120" height="120" decoding="async" fetchpriority="high" />
     </div>
   </header>
   <div class="header-bar"></div>
@@ -993,10 +1284,56 @@
 </div>
 
 </div>
+<div class="toast" id="offlineToast" role="status" aria-live="polite">Offline mode — CV cached</div>
 <footer class="site-footer">
   © 2026 Hashemi Rafsanjani · <a href="https://github.com/aloc999">github.com/aloc999</a> ·
   <a href="mailto:hashemi.official@gmail.com">hashemi.official@gmail.com</a>
 </footer>
+
+
+<script>
+(() => {
+  // Service worker (PWA offline)
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('./sw.js').catch(() => {});
+    });
+  }
+
+  // Offline toast
+  const toast = document.getElementById('offlineToast');
+  const showToast = (msg) => {
+    if (!toast) return;
+    toast.textContent = msg;
+    toast.classList.add('show');
+    setTimeout(() => toast.classList.remove('show'), 2800);
+  };
+  window.addEventListener('offline', () => showToast('Offline mode — CV cached'));
+  window.addEventListener('online', () => showToast('Back online'));
+
+  // Install prompt (Chrome/Edge/Android)
+  let deferredPrompt = null;
+  const installBtn = document.getElementById('installBtn');
+  window.addEventListener('beforeinstallprompt', (e) => {
+    e.preventDefault();
+    deferredPrompt = e;
+    if (installBtn) installBtn.classList.add('show');
+  });
+  if (installBtn) {
+    installBtn.addEventListener('click', async () => {
+      if (!deferredPrompt) return;
+      deferredPrompt.prompt();
+      try { await deferredPrompt.userChoice; } catch (_) {}
+      deferredPrompt = null;
+      installBtn.classList.remove('show');
+    });
+  }
+  window.addEventListener('appinstalled', () => {
+    if (installBtn) installBtn.classList.remove('show');
+    deferredPrompt = null;
+  });
+})();
+</script>
 
 </body>
 </html>
