@@ -1,0 +1,1003 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<meta name="description" content="Hashemi Rafsanjani — Cybersecurity Researcher, OSINT Practitioner, Threat Analyst & Bug Bounty Hunter. Live CV." />
+<meta name="author" content="Hashemi Rafsanjani" />
+<meta name="theme-color" content="#05080f" />
+<meta property="og:title" content="Hashemi Rafsanjani — Cybersecurity CV" />
+<meta property="og:description" content="Cybersecurity Researcher · OSINT · Threat Analyst · Bug Bounty Hunter" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://aloc999.github.io/" />
+<meta property="og:image" content="https://aloc999.github.io/photo.jpg" />
+<meta name="twitter:card" content="summary" />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>" />
+
+<title>Hashemi Rafsanjani — Cybersecurity Researcher CV</title>
+<style>
+  @page { size: A4; margin: 0; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #05080f;
+    --border: #1a2740;
+    --border2: #243552;
+    --accent: #00ff9c;
+    --accent2: #00d4ff;
+    --accent-dim: #00c47a;
+    --text: #e8eef7;
+    --body: #b8c4d6;
+    --muted: #6b7c94;
+    --chip-bg: #0c1f18;
+    --chip-border: #0f3d2c;
+    --chip-text: #00ff9c;
+  }
+
+  html, body {
+    font-family: "Segoe UI", "Calibri", "Helvetica Neue", Arial, sans-serif;
+    color: var(--body);
+    font-size: 9pt;
+    line-height: 1.38;
+    background: var(--bg);
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .page {
+    width: 210mm;
+    min-height: 297mm;
+    margin: 0 auto;
+    background:
+      radial-gradient(ellipse 80% 50% at 100% 0%, rgba(0, 212, 255, 0.06), transparent 50%),
+      radial-gradient(ellipse 60% 40% at 0% 100%, rgba(0, 255, 156, 0.05), transparent 50%),
+      linear-gradient(180deg, #05080f 0%, #070c16 100%);
+    position: relative;
+    overflow: hidden;
+    color: var(--body);
+  }
+
+  .page::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: repeating-linear-gradient(
+      0deg, transparent, transparent 2px,
+      rgba(0, 0, 0, 0.025) 2px, rgba(0, 0, 0, 0.025) 4px
+    );
+    z-index: 50;
+  }
+
+  .corner {
+    position: absolute;
+    width: 14px; height: 14px;
+    border: 1.5px solid rgba(0, 255, 156, 0.35);
+    z-index: 2; pointer-events: none;
+  }
+  .corner.tl { top: 6px; left: 6px; border-right: 0; border-bottom: 0; }
+  .corner.tr { top: 6px; right: 6px; border-left: 0; border-bottom: 0; }
+  .corner.bl { bottom: 6px; left: 6px; border-right: 0; border-top: 0; }
+  .corner.br { bottom: 6px; right: 6px; border-left: 0; border-top: 0; }
+
+  .header {
+    background: linear-gradient(135deg, #03060c 0%, #0a1220 45%, #061018 100%);
+    color: #fff;
+    padding: 13px 18px 11px 18px;
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    position: relative;
+    border-bottom: 1px solid var(--border2);
+  }
+  .header::before {
+    content: "";
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 55% 90% at 88% 30%, rgba(0, 255, 156, 0.10), transparent 55%),
+      radial-gradient(ellipse 40% 60% at 8% 80%, rgba(0, 212, 255, 0.07), transparent 50%);
+    pointer-events: none;
+  }
+  .header-grid {
+    position: absolute; inset: 0; opacity: 0.05;
+    background-image:
+      linear-gradient(rgba(0,255,156,1) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0,255,156,1) 1px, transparent 1px);
+    background-size: 18px 18px;
+    pointer-events: none;
+  }
+  .header-main { flex: 1; position: relative; z-index: 1; min-width: 0; }
+
+  .tagline {
+    font-family: "Cascadia Code", "Fira Code", "Consolas", "Courier New", monospace;
+    font-size: 6.5pt;
+    color: var(--accent);
+    letter-spacing: 1.2px;
+    margin-bottom: 2px;
+    opacity: 0.9;
+  }
+  .name {
+    font-size: 18.5pt;
+    font-weight: 700;
+    letter-spacing: 1.8px;
+    line-height: 1.05;
+    color: #fff;
+    text-transform: uppercase;
+    text-shadow: 0 0 24px rgba(0, 255, 156, 0.18);
+  }
+  .titles {
+    margin-top: 3px;
+    font-size: 7.8pt;
+    color: var(--accent2);
+    font-weight: 600;
+    letter-spacing: 0.2px;
+  }
+  .titles span.dot { color: #3a4d66; margin: 0 5px; font-weight: 400; }
+
+  .accent-line {
+    height: 2px; width: 78px;
+    background: linear-gradient(90deg, var(--accent), var(--accent2), transparent);
+    margin: 6px 0 7px 0;
+    border-radius: 2px;
+    box-shadow: 0 0 8px rgba(0, 255, 156, 0.45);
+  }
+
+  .contacts {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1.1fr;
+    gap: 2px 8px;
+    font-size: 6.8pt;
+    color: #9aabbf;
+    font-family: "Cascadia Code", "Fira Code", "Consolas", "Courier New", monospace;
+  }
+  .contacts a { color: var(--accent); text-decoration: none; }
+  .contacts .item {
+    display: flex; align-items: center; gap: 4px;
+    white-space: nowrap;
+  }
+  .contacts .ico {
+    color: var(--accent2);
+    font-size: 6.6pt;
+    width: 12px;
+    flex-shrink: 0;
+  }
+
+  .photo-wrap {
+    position: relative;
+    z-index: 1;
+    flex-shrink: 0;
+    width: 88px;
+    height: 88px;
+  }
+  .photo-wrap::before {
+    content: "";
+    position: absolute;
+    inset: -3px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    z-index: -1;
+  }
+  .photo-wrap img {
+    width: 88px;
+    height: 88px;
+    object-fit: cover;
+    object-position: center center;
+    border-radius: 8px;
+    border: 2px solid #0a0f1a;
+    display: block;
+  }
+
+  .header-bar {
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent) 0%, var(--accent2) 45%, #0e3a5c 100%);
+    box-shadow: 0 0 12px rgba(0, 255, 156, 0.35);
+  }
+
+  .body {
+    padding: 9px 17px 10px 17px;
+    position: relative;
+    z-index: 1;
+  }
+  .section { margin-bottom: 6.5px; }
+
+  .section-title {
+    font-size: 7.4pt;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: var(--text);
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    margin-bottom: 4px;
+    padding-bottom: 2.5px;
+    border-bottom: 1px solid var(--border2);
+  }
+  .section-title .prompt {
+    color: var(--accent);
+    font-family: "Cascadia Code", "Fira Code", "Consolas", "Courier New", monospace;
+    font-weight: 700;
+    letter-spacing: 0;
+    text-shadow: 0 0 8px rgba(0, 255, 156, 0.4);
+  }
+
+  .summary {
+    font-size: 7.6pt;
+    line-height: 1.38;
+    color: var(--body);
+    text-align: justify;
+  }
+  .summary strong { color: var(--accent); font-weight: 700; }
+
+  .skill-group { margin-bottom: 3px; }
+  .skill-label {
+    font-size: 6.5pt;
+    font-weight: 700;
+    color: var(--accent2);
+    letter-spacing: 0.55px;
+    text-transform: uppercase;
+    margin-bottom: 1.5px;
+    font-family: "Cascadia Code", "Fira Code", "Consolas", "Courier New", monospace;
+  }
+  .chips { display: flex; flex-wrap: wrap; gap: 2.5px; }
+  .chip {
+    background: var(--chip-bg);
+    border: 1px solid var(--chip-border);
+    color: var(--chip-text);
+    font-size: 6.5pt;
+    font-weight: 600;
+    padding: 1.5px 6px;
+    border-radius: 2px;
+  }
+
+  .job { margin-bottom: 5px; page-break-inside: avoid; }
+  .job-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 10px;
+  }
+  .job-role {
+    font-size: 8.3pt;
+    font-weight: 700;
+    color: var(--text);
+  }
+  .job-dates {
+    font-size: 6.5pt;
+    font-weight: 600;
+    color: var(--accent);
+    white-space: nowrap;
+    background: rgba(0, 255, 156, 0.06);
+    padding: 1px 6px;
+    border-radius: 2px;
+    border: 1px solid rgba(0, 255, 156, 0.22);
+    font-family: "Cascadia Code", "Fira Code", "Consolas", "Courier New", monospace;
+  }
+  .job-company {
+    font-size: 7.1pt;
+    color: var(--accent2);
+    font-style: italic;
+    font-weight: 600;
+    margin-bottom: 1.5px;
+  }
+
+  ul.bullets { list-style: none; padding: 0; margin: 0; }
+  ul.bullets li {
+    position: relative;
+    padding-left: 10px;
+    margin-bottom: 0.6px;
+    font-size: 7.3pt;
+    line-height: 1.3;
+    color: var(--body);
+  }
+  ul.bullets li::before {
+    content: "›";
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-size: 8.5pt;
+    font-weight: 700;
+    line-height: 1.15;
+  }
+
+  .portfolio-item {
+    margin-bottom: 4px;
+    padding: 4.5px 7px;
+    background: rgba(0, 255, 156, 0.03);
+    border: 1px solid var(--border);
+    border-left: 2.5px solid var(--accent);
+    border-radius: 0 3px 3px 0;
+    page-break-inside: avoid;
+  }
+  .portfolio-item .ptitle {
+    font-size: 7.9pt;
+    font-weight: 700;
+    color: var(--text);
+  }
+  .portfolio-item .plink {
+    color: var(--accent);
+    text-decoration: none;
+    font-family: "Cascadia Code", "Fira Code", "Consolas", "Courier New", monospace;
+    font-size: 6.8pt;
+    font-weight: 600;
+  }
+  .portfolio-item .pdesc {
+    font-size: 7.1pt;
+    color: var(--body);
+    margin-top: 1.5px;
+    line-height: 1.32;
+  }
+  .portfolio-item .pdesc strong { color: var(--accent2); font-weight: 650; }
+
+  .cert-cat {
+    font-size: 6.5pt;
+    font-weight: 700;
+    color: var(--accent2);
+    letter-spacing: 0.55px;
+    text-transform: uppercase;
+    margin: 4px 0 2px 0;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-family: "Cascadia Code", "Fira Code", "Consolas", "Courier New", monospace;
+  }
+  .cert-cat::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, var(--border2), transparent);
+  }
+
+  .cert {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 5px;
+    padding: 1.5px 0;
+    border-bottom: 1px solid rgba(26, 39, 64, 0.7);
+    page-break-inside: avoid;
+  }
+  .cert-name { font-size: 7.1pt; font-weight: 700; color: var(--text); }
+  .cert-meta { font-size: 6.3pt; color: var(--muted); }
+  .cert-date {
+    font-size: 6.3pt;
+    font-weight: 600;
+    color: var(--accent-dim);
+    white-space: nowrap;
+    flex-shrink: 0;
+    font-family: "Cascadia Code", "Fira Code", "Consolas", "Courier New", monospace;
+  }
+  .cert-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 11px;
+  }
+
+  .interests { font-size: 7.4pt; color: var(--body); letter-spacing: 0.3px; }
+
+  .footer {
+    margin-top: 6px;
+    padding-top: 4px;
+    border-top: 1px solid var(--border);
+    text-align: center;
+    font-size: 6.3pt;
+    color: var(--muted);
+    font-family: "Cascadia Code", "Fira Code", "Consolas", "Courier New", monospace;
+    letter-spacing: 0.5px;
+  }
+  .footer span { color: var(--accent); }
+
+  .section-title, .job-head, .cert-cat { page-break-after: avoid; }
+
+  /* ── WEB LIVE CV OVERRIDES ── */
+  html { scroll-behavior: smooth; }
+  body {
+    background: #03060c !important;
+    min-height: 100vh;
+    font-size: 15px !important;
+    line-height: 1.5 !important;
+  }
+  .site-bg {
+    position: fixed; inset: 0; z-index: 0; pointer-events: none;
+    background:
+      radial-gradient(ellipse 70% 40% at 80% 0%, rgba(0,255,156,0.07), transparent 55%),
+      radial-gradient(ellipse 50% 40% at 10% 100%, rgba(0,212,255,0.05), transparent 50%),
+      #03060c;
+  }
+  .topbar {
+    position: sticky; top: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 12px; flex-wrap: wrap;
+    padding: 10px 20px;
+    background: rgba(5,8,15,0.88);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid #1a2740;
+  }
+  .topbar .brand {
+    font-family: "Cascadia Code", "Fira Code", Consolas, monospace;
+    font-size: 12px; color: #00ff9c; letter-spacing: 0.5px;
+  }
+  .topbar .brand span { color: #6b7c94; }
+  .topbar-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 7px 14px; border-radius: 4px;
+    font-size: 12px; font-weight: 600; text-decoration: none;
+    font-family: "Cascadia Code", "Fira Code", Consolas, monospace;
+    border: 1px solid #00ff9c; color: #00ff9c;
+    background: rgba(0,255,156,0.06);
+    transition: background .15s, color .15s, box-shadow .15s;
+  }
+  .btn:hover {
+    background: #00ff9c; color: #05080f;
+    box-shadow: 0 0 16px rgba(0,255,156,0.35);
+  }
+  .btn.secondary {
+    border-color: #00d4ff; color: #00d4ff;
+    background: rgba(0,212,255,0.06);
+  }
+  .btn.secondary:hover {
+    background: #00d4ff; color: #05080f;
+    box-shadow: 0 0 16px rgba(0,212,255,0.35);
+  }
+  .wrap {
+    position: relative; z-index: 1;
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 20px 16px 48px;
+  }
+  .page {
+    width: 100% !important;
+    min-height: auto !important;
+    max-width: 920px;
+    margin: 0 auto;
+    border: 1px solid #1a2740;
+    border-radius: 10px;
+    box-shadow: 0 0 0 1px rgba(0,255,156,0.05), 0 24px 60px rgba(0,0,0,0.45);
+    overflow: hidden;
+  }
+  .page::after { opacity: 0.5; }
+  .header { padding: 22px 24px 18px !important; gap: 20px !important; }
+  .name { font-size: 28px !important; letter-spacing: 2px !important; }
+  .titles { font-size: 13px !important; margin-top: 6px !important; }
+  .tagline { font-size: 11px !important; }
+  .contacts {
+    font-size: 12px !important;
+    max-width: 100% !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 6px 14px !important;
+  }
+  .photo-wrap, .photo-wrap img {
+    width: 110px !important;
+    height: 110px !important;
+  }
+  .body { padding: 20px 24px 24px !important; }
+  .section { margin-bottom: 18px !important; }
+  .section-title { font-size: 13px !important; margin-bottom: 10px !important; padding-bottom: 6px !important; }
+  .summary { font-size: 14px !important; line-height: 1.55 !important; }
+  .skill-label { font-size: 11px !important; margin-bottom: 6px !important; }
+  .chip { font-size: 11.5px !important; padding: 4px 10px !important; }
+  .chips { gap: 6px !important; }
+  .skill-group { margin-bottom: 10px !important; }
+  .job { margin-bottom: 14px !important; }
+  .job-role { font-size: 15px !important; }
+  .job-company { font-size: 13px !important; margin-bottom: 4px !important; }
+  .job-dates { font-size: 11px !important; padding: 2px 10px !important; }
+  ul.bullets li { font-size: 13.5px !important; line-height: 1.45 !important; margin-bottom: 3px !important; padding-left: 14px !important; }
+  .portfolio-item { padding: 12px 14px !important; margin-bottom: 10px !important; }
+  .portfolio-item .ptitle { font-size: 14px !important; }
+  .portfolio-item .plink { font-size: 12px !important; }
+  .portfolio-item .pdesc { font-size: 13px !important; line-height: 1.45 !important; margin-top: 4px !important; }
+  .cert-cat { font-size: 11px !important; margin: 12px 0 8px !important; }
+  .cert { padding: 5px 0 !important; }
+  .cert-name { font-size: 13px !important; }
+  .cert-meta { font-size: 11.5px !important; }
+  .cert-date { font-size: 11px !important; }
+  .cert-grid { gap: 0 20px !important; }
+  .interests { font-size: 14px !important; }
+  .footer { margin-top: 18px !important; padding-top: 12px !important; font-size: 12px !important; }
+  .site-footer {
+    text-align: center;
+    padding: 18px 12px 8px;
+    font-family: "Cascadia Code", "Fira Code", Consolas, monospace;
+    font-size: 11px; color: #6b7c94;
+  }
+  .site-footer a { color: #00ff9c; text-decoration: none; }
+  .site-footer a:hover { text-decoration: underline; }
+
+  @media (max-width: 720px) {
+    .header { flex-direction: column; align-items: flex-start !important; }
+    .photo-wrap { align-self: center; }
+    .contacts { grid-template-columns: 1fr !important; }
+    .cert-grid { grid-template-columns: 1fr !important; }
+    .name { font-size: 22px !important; }
+    .job-head { flex-direction: column; align-items: flex-start; gap: 4px; }
+    .body { padding: 16px 14px 20px !important; }
+    .header { padding: 18px 14px 14px !important; }
+    .wrap { padding: 12px 10px 36px; }
+  }
+
+  @media print {
+    .topbar, .site-footer, .site-bg { display: none !important; }
+    .wrap { padding: 0; max-width: none; }
+    .page {
+      border: none; border-radius: 0; box-shadow: none;
+      width: 210mm !important;
+    }
+    body { background: #05080f !important; }
+  }
+
+</style>
+</head>
+<body>
+
+<div class="site-bg"></div>
+<nav class="topbar">
+  <div class="brand">root@aloc999<span>:~#</span> ./cv.sh</div>
+  <div class="topbar-actions">
+    <a class="btn" href="Hashemi_Rafsanjani_CV.pdf" download>↓ Download PDF</a>
+    <a class="btn secondary" href="https://github.com/aloc999" target="_blank" rel="noopener">GitHub</a>
+    <a class="btn secondary" href="https://linkedin.com/in/hashemirafsanjani" target="_blank" rel="noopener">LinkedIn</a>
+  </div>
+</nav>
+<div class="wrap">
+
+<div class="page">
+  <div class="corner tl"></div>
+  <div class="corner tr"></div>
+  <div class="corner bl"></div>
+  <div class="corner br"></div>
+
+  <header class="header">
+    <div class="header-grid"></div>
+    <div class="header-main">
+      <div class="tagline">root@security:~# whoami</div>
+      <div class="name">Hashemi Rafsanjani</div>
+      <div class="titles">
+        Cybersecurity Researcher<span class="dot">·</span>OSINT Practitioner<span class="dot">·</span>Threat Analyst<span class="dot">·</span>Bug Bounty Hunter
+      </div>
+      <div class="accent-line"></div>
+      <div class="contacts">
+        <span class="item"><span class="ico">@</span><a href="mailto:hashemi.official@gmail.com">hashemi.official@gmail.com</a></span>
+        <span class="item"><span class="ico">#</span>+62 856-3901-995</span>
+        <span class="item"><span class="ico">&gt;</span>Kendal, Central Java, ID</span>
+        <span class="item"><span class="ico">in</span><a href="https://linkedin.com/in/hashemirafsanjani">linkedin.com/in/hashemirafsanjani</a></span>
+        <span class="item"><span class="ico">gh</span><a href="https://github.com/aloc999">github.com/aloc999</a></span>
+        <span class="item"><span class="ico">~</span>Indonesian · English</span>
+      </div>
+    </div>
+    <div class="photo-wrap">
+      <img src="photo.jpg" alt="Hashemi Rafsanjani" width="110" height="110" />
+    </div>
+  </header>
+  <div class="header-bar"></div>
+
+  <div class="body">
+
+    <section class="section">
+      <div class="section-title"><span class="prompt">//</span> Professional Summary</div>
+      <p class="summary">
+        Cybersecurity Researcher, OSINT Practitioner, and Bug Bounty Hunter with hands-on experience in banking
+        <strong>IT Security Operations</strong> and active vulnerability research on
+        <strong>Intigriti</strong> and <strong>Bugcrowd</strong>. Builds open-source offensive tooling
+        <strong>(redgun, Xploit47, ZER0CODE, CODA, ExploitNinja)</strong> spanning web/API, cloud, Web3, mobile, and
+        <strong>AI/LLM security</strong>. Bridges technical deep-dives and business impact across Blue Team and Red Team —
+        threat hunting, CTI, penetration testing, DFIR, and security monitoring. Applies continuous-improvement and
+        <strong>CI/CD discipline</strong> to security workflows, delivering intelligence-led, actionable findings.
+      </p>
+    </section>
+
+    <section class="section">
+      <div class="section-title"><span class="prompt">//</span> Core Competencies</div>
+
+      <div class="skill-group">
+        <div class="skill-label">$ security_ops | defense</div>
+        <div class="chips">
+          <span class="chip">SIEM / SOAR</span>
+          <span class="chip">Threat Hunting</span>
+          <span class="chip">DFIR</span>
+          <span class="chip">Threat Intelligence</span>
+          <span class="chip">MITRE ATT&amp;CK</span>
+          <span class="chip">IDS / IPS</span>
+          <span class="chip">EDR / XDR</span>
+          <span class="chip">Network Analysis</span>
+          <span class="chip">Incident Response</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-label">$ offensive_security | research</div>
+        <div class="chips">
+          <span class="chip">Bug Bounty</span>
+          <span class="chip">Penetration Testing</span>
+          <span class="chip">Red Teaming</span>
+          <span class="chip">Web / API Security</span>
+          <span class="chip">Burp Suite</span>
+          <span class="chip">OWASP Top 10</span>
+          <span class="chip">Active Directory</span>
+          <span class="chip">Cloud Red Team</span>
+          <span class="chip">Phishing Ops</span>
+          <span class="chip">OSINT / Dark Web</span>
+          <span class="chip">Mobile Security</span>
+          <span class="chip">AppSec / SAST</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-label">$ ai_llm | web3 | specialized</div>
+        <div class="chips">
+          <span class="chip">AI / LLM Security</span>
+          <span class="chip">Prompt Injection</span>
+          <span class="chip">AI Red Teaming</span>
+          <span class="chip">MCP / AI Agents</span>
+          <span class="chip">Web3 / Smart Contracts</span>
+          <span class="chip">Smart Contract Audit</span>
+          <span class="chip">Attack Path Planning</span>
+          <span class="chip">Security Tooling</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-label">$ engineering_stack</div>
+        <div class="chips">
+          <span class="chip">Python</span>
+          <span class="chip">TypeScript / JS</span>
+          <span class="chip">Node.js</span>
+          <span class="chip">SQL / KQL</span>
+          <span class="chip">Shell / CLI</span>
+          <span class="chip">Linux &amp; Windows</span>
+          <span class="chip">HTML / CSS</span>
+          <span class="chip">Java</span>
+          <span class="chip">C++ / C#</span>
+          <span class="chip">Secure SDLC</span>
+          <span class="chip">ISO 27001 / 27701 / 42001</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-title"><span class="prompt">//</span> Work Experience</div>
+
+      <div class="job">
+        <div class="job-head">
+          <div class="job-role">Security Researcher</div>
+          <div class="job-dates">Aug 2025 — Present</div>
+        </div>
+        <div class="job-company">Intigriti (Bug Bounty Platform)</div>
+        <ul class="bullets">
+          <li>Perform penetration testing, security research, bug analysis, and exploit validation across multi-company application state and endpoints.</li>
+          <li>Identify, validate, and report web application, API, and endpoint vulnerabilities with clear remediation guidance.</li>
+          <li>Follow responsible disclosure practices and produce reproducible technical findings for program owners.</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <div class="job-head">
+          <div class="job-role">Security Researcher</div>
+          <div class="job-dates">Aug 2025 — Present</div>
+        </div>
+        <div class="job-company">Bugcrowd (Bug Bounty Platform)</div>
+        <ul class="bullets">
+          <li>Conduct continuous vulnerability research and security analysis across multi-company bug bounty targets.</li>
+          <li>Analyze application state and attack surface; report actionable findings for remediation.</li>
+          <li>Apply offensive security methodologies including recon, exploitation validation, and impact assessment.</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <div class="job-head">
+          <div class="job-role">IT Security Operations</div>
+          <div class="job-dates">Feb 2021 — Dec 2025</div>
+        </div>
+        <div class="job-company">PT Bank Syariah Indonesia Tbk</div>
+        <ul class="bullets">
+          <li>24/7 SOC monitoring and alert triage using security monitoring tools; network maintenance and system health checks.</li>
+          <li>Proactive threat hunting and cyber threat intelligence production with intelligence-led reporting.</li>
+          <li>Penetration testing for security hardening; phishing analysis and malware analysis.</li>
+          <li>Administered cloud security, IDS/IPS, and firewall issues; patch recommendations and system updates.</li>
+          <li>OSINT investigations with structured collection methodology; digital vulnerability assessment.</li>
+          <li>Dark-web monitoring under OpSec discipline using sock-puppet accounts for cybercrime observation.</li>
+          <li>Research new threat attack vectors and cyber kill-chain patterns; collaborate across departments.</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <div class="job-head">
+          <div class="job-role">Financing Operations &amp; IT Support Staff</div>
+          <div class="job-dates">Jan 2020 — Feb 2021</div>
+        </div>
+        <div class="job-company">PT Bank BNI Syariah</div>
+        <ul class="bullets">
+          <li>Maintained financing contracts (mortgage, multipurpose, SME) with data-quality and documentation controls.</li>
+          <li>Operated branch server infrastructure including routing and intranet broadband.</li>
+          <li>Coordinated with public notaries for financing guarantees; reporting to financial authorities.</li>
+          <li>IT support ticketing and operational resolution across branch systems.</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <div class="job-head">
+          <div class="job-role">IT Support Assistant</div>
+          <div class="job-dates">Jan 2017 — Dec 2019</div>
+        </div>
+        <div class="job-company">PT Bank Negara Indonesia (Persero) Tbk</div>
+        <ul class="bullets">
+          <li>Desktop, network, and Microsoft 365 troubleshooting; software network-traffic analysis.</li>
+          <li>Helpdesk administration: complaint handling, ticket lifecycle, and remediation reporting.</li>
+          <li>Cloud and firewall issue resolution; system health checks and software patch updates.</li>
+          <li>Cross-department coordination for incident and request fulfillment.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-title"><span class="prompt">//</span> Portfolio</div>
+
+      <div class="portfolio-item">
+        <div>
+          <span class="ptitle">Security Research Portfolio</span>
+          · <a class="plink" href="https://github.com/aloc999">github.com/aloc999</a>
+        </div>
+        <div class="pdesc">
+          Open security research and methodology: <strong>Bug-Hunting-Methodology</strong> (36 vuln classes, payloads, bypasses),
+          <strong>PENTESTING-TECHNIQUES</strong> (web · network · AD · cloud path), and <strong>ExploitNinja</strong>
+          (147 pentest skills — bug bounty, web3, mobile, cloud, OSINT, AI/LLM security). Focus on offensive security,
+          OSINT, vulnerability analysis, and reproducible research artifacts.
+        </div>
+      </div>
+
+      <div class="portfolio-item">
+        <div>
+          <span class="ptitle">Software Engineering Portfolio</span>
+          · <a class="plink" href="https://github.com/aloc999">github.com/aloc999</a>
+        </div>
+        <div class="pdesc">
+          Security engineering products: <strong>redgun</strong> (CLI web auditor — black/white-box, ~120 modules, AI attack chains),
+          <strong>Xploit47</strong> (AI-powered pentest reasoning MCP — Beam Search + MCTS attack-path planning),
+          <strong>ZER0CODE</strong> (AI red-team coding agent for offensive workflows), and <strong>CODA</strong>
+          (smart-contract audit arsenal — 26 tools, static analysis to formal verification). Full-stack craft via Full Stack Open.
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-title"><span class="prompt">//</span> Education</div>
+      <div class="job-head">
+        <div class="job-role" style="font-size:8.1pt">Bachelor — Economics and Business, Information Systems</div>
+        <div class="job-dates">Aug 2012 — Aug 2016</div>
+      </div>
+      <div class="job-company">Universitas Dian Nuswantoro</div>
+    </section>
+
+    <section class="section">
+      <div class="section-title"><span class="prompt">//</span> Courses &amp; Certifications</div>
+
+      <div class="cert-cat">[ red_team · offensive_security ]</div>
+      <div class="cert-grid">
+        <div class="cert">
+          <div>
+            <div class="cert-name">Certified Red Team Specialist (CRTS)</div>
+            <div class="cert-meta">CyberWarfare Labs · Lateral movement, AD, adversary simulation, CI/CD</div>
+          </div>
+          <div class="cert-date">Apr 2026</div>
+        </div>
+        <div class="cert">
+          <div>
+            <div class="cert-name">Certified Offensive Phishing Operator</div>
+            <div class="cert-meta">CyberWarfare Labs · BiTB, device-code phishing, illicit consent, MFA</div>
+          </div>
+          <div class="cert-date">Apr 2026</div>
+        </div>
+        <div class="cert">
+          <div>
+            <div class="cert-name">Multi-Cloud Red Team Analyst</div>
+            <div class="cert-meta">CyberWarfare Labs · AWS · GCP · Azure misconfigurations</div>
+          </div>
+          <div class="cert-date">Mar 2026</div>
+        </div>
+        <div class="cert">
+          <div>
+            <div class="cert-name">Web Red Team Analyst</div>
+            <div class="cert-meta">CyberWarfare Labs · Modern web vulnerability assessment</div>
+          </div>
+          <div class="cert-date">Mar 2026</div>
+        </div>
+        <div class="cert">
+          <div>
+            <div class="cert-name">Cybernetics Pro Labs</div>
+            <div class="cert-meta">Hack The Box · AD, phishing, lateral movement, privilege escalation</div>
+          </div>
+          <div class="cert-date">Jan 2026</div>
+        </div>
+        <div class="cert">
+          <div>
+            <div class="cert-name">Certified Red Team Analyst (CRTA)</div>
+            <div class="cert-meta">CyberWarfare Labs · AD pentest, network/Windows, adversary sim</div>
+          </div>
+          <div class="cert-date">Dec 2025</div>
+        </div>
+        <div class="cert">
+          <div>
+            <div class="cert-name">Certified API Red Team Analyst</div>
+            <div class="cert-meta">CyberWarfare Labs · WebApp, API, AWS CloudNative security</div>
+          </div>
+          <div class="cert-date">Dec 2025</div>
+        </div>
+        <div class="cert">
+          <div>
+            <div class="cert-name">Certified Associate Penetration Tester</div>
+            <div class="cert-meta">Hackviser · AD, VAPT, AppSec, network security</div>
+          </div>
+          <div class="cert-date">Dec 2025</div>
+        </div>
+        <div class="cert">
+          <div>
+            <div class="cert-name">Certified Red Team Operations Management</div>
+            <div class="cert-meta">Red Team Leaders · Red Team security operations management</div>
+          </div>
+          <div class="cert-date">Dec 2025</div>
+        </div>
+      </div>
+
+      <div class="cert-cat">[ blue_team · cti · dfir · osint ]</div>
+      <div class="cert-grid">
+        <div class="cert">
+          <div>
+            <div class="cert-name">CSI Linux Certified Investigator Academy</div>
+            <div class="cert-meta">CSI Linux · Real threat intelligence investigations</div>
+          </div>
+          <div class="cert-date">Jan 2026</div>
+        </div>
+        <div class="cert">
+          <div>
+            <div class="cert-name">Certified Threat Intelligence &amp; Governance Analyst</div>
+            <div class="cert-meta">Red Team Leaders · CTI on case scenarios</div>
+          </div>
+          <div class="cert-date">Jan 2026</div>
+        </div>
+        <div class="cert">
+          <div>
+            <div class="cert-name">Certificate of Competence — Chinese OSINT</div>
+            <div class="cert-meta">Hacktoria · China-focused OSINT investigations</div>
+          </div>
+          <div class="cert-date">Jan 2026</div>
+        </div>
+        <div class="cert">
+          <div>
+            <div class="cert-name">DFIR Foundations &amp; Techniques</div>
+            <div class="cert-meta">Blue Cape Security · SIEM/SOAR, Splunk, Autopsy, Win forensics</div>
+          </div>
+          <div class="cert-date">Jan 2026</div>
+        </div>
+        <div class="cert">
+          <div>
+            <div class="cert-name">Hands-On KQL for Security Analysis</div>
+            <div class="cert-meta">Blu Raven Academy · KQL-based security analysis</div>
+          </div>
+          <div class="cert-date">Jan 2026</div>
+        </div>
+        <div class="cert">
+          <div>
+            <div class="cert-name">ICS CyberSecurity Vulnerabilities (21OW-07)</div>
+            <div class="cert-meta">U.S. Department of Homeland Security · ICS vulnerabilities</div>
+          </div>
+          <div class="cert-date">Jan 2026</div>
+        </div>
+        <div class="cert">
+          <div>
+            <div class="cert-name">Operation Gambler OSINT CTF</div>
+            <div class="cert-meta">UK OSINT Community · Real-world OSINT investigations</div>
+          </div>
+          <div class="cert-date">Jan 2026</div>
+        </div>
+        <div class="cert">
+          <div>
+            <div class="cert-name">Cyber Threat Intelligence Analyst</div>
+            <div class="cert-meta">arcX · CTI and APT threat analysis</div>
+          </div>
+          <div class="cert-date">Dec 2025</div>
+        </div>
+        <div class="cert">
+          <div>
+            <div class="cert-name">Blue Team Junior Analyst</div>
+            <div class="cert-meta">Security Blue Team · OSINT, DFIR, dark web, threat hunting</div>
+          </div>
+          <div class="cert-date">Dec 2025</div>
+        </div>
+        <div class="cert">
+          <div>
+            <div class="cert-name">Advanced OSINT Mastery</div>
+            <div class="cert-meta">Red Team Leaders · SOCMINT, GEOINT, dark web, OPSEC</div>
+          </div>
+          <div class="cert-date">Mar 2026</div>
+        </div>
+        <div class="cert">
+          <div>
+            <div class="cert-name">Maltego for Cybercrime</div>
+            <div class="cert-meta">Maltego · Detecting &amp; tracking criminal activity</div>
+          </div>
+          <div class="cert-date">2026</div>
+        </div>
+      </div>
+
+      <div class="cert-cat">[ governance · ai · privacy · foundations ]</div>
+      <div class="cert-grid">
+        <div class="cert">
+          <div>
+            <div class="cert-name">ISO/IEC 42001:2023 Lead Auditor</div>
+            <div class="cert-meta">AI Management System (AIMS) · Conformity &amp; non-conformity auditing</div>
+          </div>
+          <div class="cert-date">Jul 2026</div>
+        </div>
+        <div class="cert">
+          <div>
+            <div class="cert-name">ISO/IEC 27701:2025 Lead Auditor</div>
+            <div class="cert-meta">Privacy Information Management System (PIMS) · Audit capability</div>
+          </div>
+          <div class="cert-date">Jul 2026</div>
+        </div>
+        <div class="cert">
+          <div>
+            <div class="cert-name">ISO/IEC 27001:2022 Lead Auditor</div>
+            <div class="cert-meta">MasterMind Assurance · ISMS conformity &amp; non-conformity auditing</div>
+          </div>
+          <div class="cert-date">Dec 2025</div>
+        </div>
+        <div class="cert">
+          <div>
+            <div class="cert-name">CSCSO Certification</div>
+            <div class="cert-meta">ICTTF · SME cyber risk, NIST, DORA, GDPR</div>
+          </div>
+          <div class="cert-date">Dec 2025</div>
+        </div>
+        <div class="cert">
+          <div>
+            <div class="cert-name">CRPO Certification</div>
+            <div class="cert-meta">ICTTF · Ransomware protection framework</div>
+          </div>
+          <div class="cert-date">Dec 2025</div>
+        </div>
+        <div class="cert">
+          <div>
+            <div class="cert-name">Google Cybersecurity Professional Certificate</div>
+            <div class="cert-meta">Google · Python, Linux, SQL, SIEM, IDS/IPS, EDR/XDR</div>
+          </div>
+          <div class="cert-date">Dec 2025</div>
+        </div>
+        <div class="cert">
+          <div>
+            <div class="cert-name">APU PPT — AML &amp; Counter-Terrorism Financing</div>
+            <div class="cert-meta">LPPI Indonesia · AML / CFT regime</div>
+          </div>
+          <div class="cert-date">Oct 2022</div>
+        </div>
+        <div class="cert">
+          <div>
+            <div class="cert-name">Lean Six Sigma White Belt</div>
+            <div class="cert-meta">The Council for Six Sigma Certification</div>
+          </div>
+          <div class="cert-date">Dec 2025</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" style="margin-bottom:2px">
+      <div class="section-title"><span class="prompt">//</span> Hobbies</div>
+      <div class="interests">Reading  ·  Coding  ·  Basketball  ·  Football  ·  Coffee  ·  Music</div>
+    </section>
+
+    <div class="footer">
+      <span>$</span> security_first  ·  intelligence_led  ·  continuous_improvement  <span>#</span>
+    </div>
+  </div>
+</div>
+
+</div>
+<footer class="site-footer">
+  © 2026 Hashemi Rafsanjani · <a href="https://github.com/aloc999">github.com/aloc999</a> ·
+  <a href="mailto:hashemi.official@gmail.com">hashemi.official@gmail.com</a>
+</footer>
+
+</body>
+</html>
