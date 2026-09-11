@@ -1,7 +1,9 @@
-const CACHE = 'hashemi-cv-v2';
+const CACHE = 'aloc999-portfolio-v1';
 const ASSETS = [
   './',
   './index.html',
+  './css/style.css',
+  './js/app.js',
   './photo.jpg',
   './manifest.webmanifest',
   './icon-192.png',
