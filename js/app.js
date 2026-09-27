@@ -6,7 +6,7 @@
   var IMPACT = [
     { place: '5Y', rank: 'gold-solo', name: 'Banking SOC — 24/7 Security Operations', badges: ['~50 alerts / shift', 'Splunk + Sentinel + Defender'], url: 'https://github.com/aloc999/DetectionEngineeringPortfolio', w: 100 },
     { place: '2X', rank: 'gold', name: 'Bug Bounty — Intigriti + Bugcrowd', badges: ['Web / API pentest', 'PoC + remediation'], url: 'https://github.com/aloc999/Bug-Hunting-Methodology', w: 88 },
-    { place: '5X', rank: 'gold', name: 'Security Tools Shipped', badges: ['redgun · Xploit47', 'ZER0CODE · CODA · CavalryHive'], url: 'https://github.com/aloc999/redgun', w: 80 },
+    { place: '5X', rank: 'gold', name: 'Security Tools Shipped', badges: ['redgun · Xploit47', 'TruthZero · CODA · CavalryHive'], url: 'https://github.com/aloc999/redgun', w: 80 },
     { place: '147', rank: 'silver', name: 'Pentest Skills Codified — ExploitNinja', badges: ['bounty · web3 · mobile', 'cloud · OSINT · AI/LLM'], url: 'https://github.com/aloc999/ExploitNinja', w: 72 },
     { place: '36', rank: 'bronze', name: 'Vuln Classes Documented', badges: ['payloads + bypasses', 'severity + impact'], url: 'https://github.com/aloc999/Bug-Hunting-Methodology', w: 58 },
     { place: '<30', rank: 'medal', name: 'Sub-30-min Regression Gate — QARonin', badges: ['Playwright · Selenium', '4-shard GHA + GitLab'], url: 'https://github.com/aloc999/QARonin', w: 44 }
@@ -22,7 +22,7 @@
     { name: 'ExploitNinja', url: 'https://github.com/aloc999/ExploitNinja', year: 'offensive', count: 147, place: 'gold', lang: 'JavaScript', feat: 1, desc: '147 pentest skills' },
     { name: 'redgun', url: 'https://github.com/aloc999/redgun', year: 'offensive', place: 'gold', lang: 'JavaScript', feat: 1, desc: '~120 modules' },
     { name: 'Xploit47', url: 'https://github.com/aloc999/Xploit47', year: 'offensive', place: 'gold', lang: 'TypeScript', feat: 1, desc: 'Beam Search + MCTS' },
-    { name: 'ZER0CODE', url: 'https://github.com/aloc999/ZER0CODE', year: 'offensive', lang: 'Python', feat: 1, desc: 'red-team agent' },
+    { name: 'TruthZero', url: 'https://github.com/aloc999/TruthZero', year: 'offensive', lang: 'Python', feat: 1, desc: 'pentest swarm' },
     { name: 'CODA', url: 'https://github.com/aloc999/CODA', year: 'offensive', lang: 'Shell', feat: 1, desc: '26 audit tools' },
     { name: 'CavalryHive', url: 'https://github.com/aloc999/CavalryHive', year: 'offensive', lang: 'Python', feat: 1, desc: 'autonomous assessment' },
     { name: 'DetectionEngineeringPortfolio', url: 'https://github.com/aloc999/DetectionEngineeringPortfolio', year: 'defensive', place: 'silver', lang: 'Python', feat: 1, desc: 'Sigma/KQL/SPL/YARA' },
